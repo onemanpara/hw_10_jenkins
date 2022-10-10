@@ -15,6 +15,7 @@ public class RegistrationFormTest extends TestBase {
     void formTest() {
         step("Fill the form fields", () -> {
             registrationForm.openPage()
+                    .cleanAdvertisement()
                     .setFirstName(firstName)
                     .setLastName(lastName)
                     .setEmail(email)

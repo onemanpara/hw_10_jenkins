@@ -6,8 +6,7 @@ import com.demoqa.pages.components.GeolocationComponent;
 import com.demoqa.pages.components.ResultTableComponent;
 
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationForm {
 
@@ -25,9 +24,14 @@ public class RegistrationForm {
             addressInput = $("#currentAddress"),
             pictureInput = $("#uploadPicture");
 
+    public RegistrationForm cleanAdvertisement() {
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
+        return this;
+    }
+
     public RegistrationForm openPage() {
-        open("/automation-practice-form")
-        ;
+        open("/automation-practice-form");
 
         return this;
     }
